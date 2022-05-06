@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 
 import { BsFillBookmarkHeartFill } from 'react-icons/bs'
+import { FaBars } from 'react-icons/fa'
 
 import './header.scss'
 import { ThemeContext } from '../../context/theme'
@@ -14,10 +15,17 @@ const Header = () => {
       <nav className="navbar">
         <ul className="navbar__menu">
           <li className="navbar__item">
+            <button className="navbar__icon">
+              <FaBars />
+            </button>
+          </li>
+          <li className="navbar__item">
             <h1 className="navbar__logo">Countries</h1>
           </li>
           <li className="navbar__item">
-            <BsFillBookmarkHeartFill className="navbar__icon" />
+            <button className="navbar__icon">
+              <BsFillBookmarkHeartFill />
+            </button>
           </li>
         </ul>
       </nav>

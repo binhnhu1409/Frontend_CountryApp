@@ -37,7 +37,13 @@
   }
 }
 
-//Mixins for font size etc
+//Mixins for font, size etc
 @mixin icon {
   font-size: 36px;
+}
+
+@mixin noneBulletFlex {
+  list-style: none;
+  display: flex;
+  padding: 0;
 }
