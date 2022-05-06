@@ -1,1 +1,18 @@
 // This partial holds major typography element styles such as h1-h6, p, and global classes or ids.
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Roboto:wght@300&display=swap');
+
+@import './variables';
+@import './mixins';
+
+h1 {
+  font-family: 'Patrick Hand', cursive;
+  font-size: 45px;
+}
+
+h2 {
+  font-family: 'Patrick Hand', cursive;
+}
+
+p {
+  font-family: 'Roboto', sans-serif;
+}
