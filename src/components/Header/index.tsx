@@ -5,17 +5,22 @@ import { FaBars } from 'react-icons/fa'
 
 import './header.scss'
 import { ThemeContext } from '../../context/theme'
+import { SidebarContext } from '../../context/sidebar'
 
 const Header = () => {
+  const { isToggle, toggleFunction } = useContext(SidebarContext)
   const { theme, switchTheme } = useContext(ThemeContext)
   console.log('THEME:', theme)
 
   return (
-    <header style={{ backgroundColor: theme.foreground }} className="head">
+    <header
+      style={{ backgroundColor: theme.foreground }}
+      className={isToggle ? 'head__withSidebar' : 'head'}
+    >
       <nav className="navbar">
         <ul className="navbar__menu">
           <li className="navbar__item">
-            <button className="navbar__icon">
+            <button className="navbar__icon" onClick={toggleFunction}>
               <FaBars />
             </button>
           </li>

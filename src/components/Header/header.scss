@@ -2,10 +2,14 @@
 @import '../../styles/variables';
 
 .head {
-  line-height: $nav-height;
+  line-height: $height-nav;
+  @include fixedTopPage;
+  padding: 0;
+  transition: margin-left 0.5s ease;
 }
 
 .navbar {
+  width: 100vh;
 
   &__menu {
     @include noneBulletFlex
@@ -20,12 +24,16 @@
   }
   
   &__icon {
-    @include icon;
+    @include iconNoBorder;
+    font-size: 36px;
     color: $color-grey;
     position: relative;
     top: 30px;
     margin: 0 10px;
-    border: none;
-    background-color: inherit;
   }
+}
+
+.head__withSidebar {
+  margin: 0 0 0 $wide-header;
+  @include fixedTopPage;
 }

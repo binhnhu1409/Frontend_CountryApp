@@ -1,0 +1,78 @@
+@import '../../styles/mixins';
+@import '../../styles/variables';
+
+.sidebar{
+  @include fixedTopPage;
+  width: $wide-themeSidebar;
+  height: 100vh;
+  padding: 20px;
+  background-color: $color-grey;
+  transform: translateX(0);
+  transition: transform 0.3s ease-out;
+
+  &__titleList {
+    @include noneBulletFlex;
+    border-bottom: 1px $color-white solid;
+  }
+
+  &__titleItem {
+    &:nth-child(1) {
+      margin-right: auto;
+      margin-left: 5 0px;
+    }
+  }
+
+  &__icon {
+    @include iconNoBorder;
+    font-size: 30px;
+    position: relative;
+    top: 20px;
+    color: $color-white;
+  }
+
+  &__colorList {
+    list-style: none;
+  }
+
+  &__colorItem {
+    padding-bottom: 15px;
+  }
+
+  .theme {
+    @include iconNoBorder;
+  
+    &__icon {
+      font-size: 20px;
+      margin-right: 10px;
+    }
+  
+    &__purple {
+      color: $color-purple;
+    }
+  
+    &__blue {
+      color: $color-blue;
+    }
+  
+    &__green {
+      color: $color-green;
+    }
+  
+    &__red {
+      color: $color-red;
+    }
+  
+    &__white {
+      color: $color-white;
+    }
+  
+  }
+
+}
+
+.noSidebar{
+  transform: translateX(-110%);
+  transition: transform 0.3s ease-in;
+}
+
+

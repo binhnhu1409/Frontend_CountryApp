@@ -12,8 +12,19 @@ h1 {
 
 h2 {
   font-family: 'Patrick Hand', cursive;
+  text-transform: uppercase;
 }
 
 p {
   font-family: 'Roboto', sans-serif;
+  color: $color-grey;
+}
+
+span {
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+}
+
+button {
+  cursor: pointer;
 }
