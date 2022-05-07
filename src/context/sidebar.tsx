@@ -11,15 +11,15 @@ export const SidebarContext = createContext<SidebarContextType>({
 })
 
 const SidebarProvider = ({ children }: { children: ReactNode }) => {
-  const [toggle, setToggle] = useState(false)
+  const [isToggle, setIsToggle] = useState(false)
   const toggleFunction = () => {
-    setToggle(!toggle)
+    setIsToggle(!isToggle)
   }
 
   return (
-    <SidebarProvider value={{ toggle, toggleFunction }}>
+    <SidebarContext.Provider value={{ isToggle, toggleFunction }}>
       {children}
-    </SidebarProvider>
+    </SidebarContext.Provider>
   )
 }
 
