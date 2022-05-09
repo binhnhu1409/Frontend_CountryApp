@@ -27,7 +27,7 @@ const Header = () => {
           <li className="navbar__item">
             <h1 className="navbar__logo">Countries</h1>
           </li>
-          <li className="navbar__item">
+          <li className="navbar__item navbar__push">
             <button className="navbar__icon">
               <BsFillBookmarkHeartFill />
             </button>

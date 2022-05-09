@@ -1,32 +1,40 @@
 import React, { useState, createContext, ReactNode } from 'react'
 
+type ThemeContextType = {
+  theme: any
+  switchTheme: (clickedTheme: any) => void
+}
+
 export const themes = {
-  light: {
-    foreground: '#000',
+  purple: {
+    foreground: '#E3CDF6',
   },
-  dark: {
-    foreground: '#fff',
+  blue: {
+    foreground: '#CAF0F8',
+  },
+  green: {
+    foreground: '#C3E5AE',
+  },
+  red: {
+    foreground: '#FBC8C8',
   },
 }
 
-export const ThemeContext = createContext({
-  theme: themes.light,
+export const ThemeContext = createContext<ThemeContextType>({
+  theme: themes.purple,
   switchTheme: () => {},
 })
 
 const ThemeProvider = ({ children }: { children: ReactNode }) => {
-  const [context, setContext] = useState({
-    theme: themes.light,
-    switchTheme: () => {
-      setContext((current) => ({
-        ...current,
-        theme: current.theme === themes.light ? themes.dark : themes.light,
-      }))
-    },
-  })
+  const [theme, setTheme] = useState(themes.purple)
+  const switchTheme = (clickedTheme: any) => {
+    setTheme(clickedTheme)
+  }
 
   return (
-    <ThemeContext.Provider value={context}>{children}</ThemeContext.Provider>
+    <ThemeContext.Provider value={{ theme, switchTheme }}>
+      {children}
+    </ThemeContext.Provider>
   )
 }
 

@@ -4,9 +4,11 @@ import { FaLongArrowAltLeft } from 'react-icons/fa'
 
 import './themeSidebar.scss'
 import { SidebarContext } from '../../context/sidebar'
+import { ThemeContext, themes } from '../../context/theme'
 
 const ThemeSidebar = () => {
   const { isToggle, toggleFunction } = useContext(SidebarContext)
+  const { switchTheme } = useContext(ThemeContext)
 
   return (
     <div className={isToggle ? 'sidebar' : 'noSidebar'}>
@@ -25,25 +27,37 @@ const ThemeSidebar = () => {
       <div>
         <ul className="sidebar__colorList">
           <li className="sidebar__colorItem">
-            <button className="theme theme__purple">
+            <button
+              className="theme theme__purple"
+              onClick={() => switchTheme(themes.purple)}
+            >
               <FaPaintBrush className="theme__icon" />
               <span className="theme__text">Purple</span>
             </button>
           </li>
           <li className="sidebar__colorItem">
-            <button className="theme theme__blue ">
+            <button
+              className="theme theme__blue"
+              onClick={() => switchTheme(themes.blue)}
+            >
               <FaPaintBrush className="theme__icon" />
               <span className="theme__text">Blue</span>
             </button>
           </li>
           <li className="sidebar__colorItem">
-            <button className="theme theme__green">
+            <button
+              className="theme theme__green"
+              onClick={() => switchTheme(themes.green)}
+            >
               <FaPaintBrush className="theme__icon" />
               <span className="theme__text">Green</span>
             </button>
           </li>
           <li className="sidebar__colorItem">
-            <button className="theme theme__red">
+            <button
+              className="theme theme__red"
+              onClick={() => switchTheme(themes.red)}
+            >
               <FaPaintBrush className="theme__icon" />
               <span className="theme__text">Red</span>
             </button>
