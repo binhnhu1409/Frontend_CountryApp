@@ -1,35 +1,28 @@
-import { createStore, applyMiddleware, compose } from 'redux'
-import createSagaMiddleware from 'redux-saga'
+import { applyMiddleware, compose, createStore } from 'redux'
 import thunk from 'redux-thunk'
 
-import { AppState } from '../types'
-import createRootReducer from './reducers'
+import rootReducer from './reducers'
+import { GlobalState } from '../types'
 
-const initState: AppState = {
-  product: {
-    inCart: [],
-  },
-  ui: {
-    dialogOpen: {},
+const init: GlobalState = {
+  country: {
+    isLoading: false,
+    allCountries: [],
+    favoriteCountries: [],
   },
 }
 
-export default function makeStore(initialState = initState) {
-  const sagaMiddleware = createSagaMiddleware()
-  const middlewares = [sagaMiddleware, thunk]
-  let composeEnhancers = compose
+export default function configureStore(initialState = init) {
+  const middlewares = [thunk]
+  let composedEnhancers = compose(applyMiddleware(...middlewares))
 
   if (process.env.NODE_ENV === 'development') {
     if ((window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) {
-      composeEnhancers = (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
+      composedEnhancers = (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
     }
   }
 
-  const store = createStore(
-    createRootReducer(),
-    initialState,
-    composeEnhancers(applyMiddleware(...middlewares))
-  )
+  const store = createStore(rootReducer, initialState, composedEnhancers)
 
   if ((module as any).hot) {
     ;(module as any).hot.accept('./reducers', () => {

@@ -9,7 +9,7 @@ import { SidebarContext } from '../../context/sidebar'
 
 const Header = () => {
   const { isToggle, toggleFunction } = useContext(SidebarContext)
-  const { theme, switchTheme } = useContext(ThemeContext)
+  const { theme } = useContext(ThemeContext)
   console.log('THEME:', theme)
 
   return (
@@ -34,7 +34,6 @@ const Header = () => {
           </li>
         </ul>
       </nav>
-      <button onClick={switchTheme}>SWITCH</button>
     </header>
   )
 }

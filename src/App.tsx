@@ -1,7 +1,6 @@
 import React from 'react'
 
 import Header from './components/Header'
-import Routes from './Routes'
 import ThemeSidebar from './components/ThemeSidebar'
 
 import ThemeProvider from './context/theme'
@@ -13,7 +12,6 @@ export default function App() {
       <ThemeProvider>
         <Header />
         <ThemeSidebar />
-        <Routes />
       </ThemeProvider>
     </SidebarProvider>
   )

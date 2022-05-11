@@ -1,61 +1,52 @@
 // Action types
+export const LOAD_COUNTRIES_REQUEST = 'LOAD_COUNTRIES_REQUEST'
+export const LOAD_COUNTRIES_FAILURE = 'LOAD_COUNTRIES_FAILURE'
+export const LOAD_COUNTRIES_SUCCESS = 'LOAD_COUNTRIES_SUCCESS'
 export const ADD_PRODUCT = 'ADD_PRODUCT'
 export const REMOVE_PRODUCT = 'REMOVE_PRODUCT'
 export const TOGGLE_DIALOG = 'TOGGLE_DIALOG'
 
-// Enum
-export enum DialogType {
-  SignIn = 'signIn',
-  SignUp = 'signUp',
-}
+// Enum?
 
-// A product
-export type Product = {
-  id: string
+// A country
+export type Country = {
+  flag: string
   name: string
-  price: number
+  language: {}
+  population: number
+  region: string
+  isFavorite: boolean
 }
 
-export type AddProductAction = {
-  type: typeof ADD_PRODUCT
+export type LoadCountriesRequestAction = {
+  type: typeof LOAD_COUNTRIES_REQUEST
+}
+
+export type LoadCountriesFailureAction = {
+  type: typeof LOAD_COUNTRIES_FAILURE
+}
+
+export type LoadCountriesSuccessAction = {
+  type: typeof LOAD_COUNTRIES_SUCCESS
   payload: {
-    product: Product,
+    countries: any[]
   }
 }
-
-export type RemoveProductAction = {
-  type: typeof REMOVE_PRODUCT
-  payload: {
-    product: Product,
-  }
-}
-
-export type ToggleDialogAction = {
-  type: typeof TOGGLE_DIALOG
-  payload: {
-    dialog: DialogType,
-  }
-}
-
-export type UiActions = ToggleDialogAction
 
 // Use this union in reducer
-export type ProductActions =
-  | AddProductAction
-  | RemoveProductAction
+export type CountryActions =
+  | LoadCountriesRequestAction
+  | LoadCountriesFailureAction
+  | LoadCountriesSuccessAction
 
-export type ProductState = {
-  inCart: Product[]
+export type CountryState = {
+  isLoading: boolean
+  allCountries: Country[]
+  favoriteCountries: Country[]
 }
 
-// Using dynamic keys from an enum
-export type UiState = {
-  dialogOpen: {
-    [key in DialogType]?: boolean
-  }
+export type GlobalState = {
+  country: CountryState
 }
 
-export type AppState = {
-  product: ProductState,
-  ui: UiState,
-}
+// Using dynamic keys from an enum?
