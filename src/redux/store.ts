@@ -14,7 +14,7 @@ const initState: AppState = {
 
 export default function configureStore(initialState = initState) {
   const middlewares = [thunk]
-  let composedEnhancers = compose(applyMiddleware(...middlewares))
+  let composedEnhancers = compose
 
   if (process.env.NODE_ENV === 'development') {
     if ((window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) {
@@ -22,7 +22,11 @@ export default function configureStore(initialState = initState) {
     }
   }
 
-  const store = createStore(rootReducer, initialState, composedEnhancers)
+  const store = createStore(
+    rootReducer(),
+    initialState,
+    composedEnhancers(compose(applyMiddleware(...middlewares)))
+  )
 
   if ((module as any).hot) {
     ;(module as any).hot.accept('./reducers', () => {

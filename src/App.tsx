@@ -1,20 +1,19 @@
 import React from 'react'
-import { useDispatch } from 'react-redux'
+import { BrowserRouter as Router } from 'react-router-dom'
 
-import Header from './components/Header'
-import ThemeSidebar from './components/ThemeSidebar'
+// import Header from './components/Header'
+// import ThemeSidebar from './components/ThemeSidebar'
 import ThemeProvider from './context/theme'
 import SidebarProvider from './context/sidebar'
-import { fetchCountries } from './redux/actions'
+import Routes from './Routes'
 
 export default function App() {
-  const dispatch = useDispatch()
   return (
     <SidebarProvider>
       <ThemeProvider>
-        <Header />
-        <ThemeSidebar />
-        <button onClick={() => dispatch(fetchCountries())}>Fetch</button>
+        <Router>
+          <Routes />
+        </Router>
       </ThemeProvider>
     </SidebarProvider>
   )
