@@ -7,13 +7,11 @@ export const LOAD_COUNTRIES_SUCCESS = 'LOAD_COUNTRIES_SUCCESS'
 
 // A country
 export type Country = {
-  flags: {
-    png: string
-  }
+  flags: string
   name: {
     common: string
   }
-  language: []
+  languages: []
   population: number
   region: string
   isFavorite: boolean

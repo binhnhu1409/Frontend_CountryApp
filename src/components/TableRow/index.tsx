@@ -9,7 +9,7 @@ const TableRow = ({ country }: CountryProps) => {
       <td>
         <img
           className="countriesRow__img"
-          src={country.flags.png}
+          src={country.flags}
           alt={`${country.name} flag`}
         />
       </td>
