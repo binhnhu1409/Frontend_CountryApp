@@ -11,7 +11,9 @@ export type Country = {
   name: {
     common: string
   }
-  languages: []
+  languages: {
+    [name: string]: string
+  }
   population: number
   region: string
   isFavorite: boolean
@@ -20,11 +22,6 @@ export type Country = {
 export type CountryProps = {
   country: Country
 }
-
-// export type Language = {
-//   short: string
-//   name: string
-// }
 
 export type LoadCountriesRequestAction = {
   type: typeof LOAD_COUNTRIES_REQUEST

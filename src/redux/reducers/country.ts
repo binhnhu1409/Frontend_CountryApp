@@ -36,7 +36,7 @@ export default function country(
     const allCountries = action.payload.countries.map((country) => ({
       flags: country.flags.png,
       name: country.name.common,
-      languages: country.language,
+      languages: country.languages,
       population: country.population,
       region: country.region,
       isFavorite: false,
