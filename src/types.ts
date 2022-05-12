@@ -13,11 +13,20 @@ export type Country = {
   name: {
     common: string
   }
-  language: {}
+  language: []
   population: number
   region: string
   isFavorite: boolean
 }
+
+export type CountryProps = {
+  country: Country
+}
+
+// export type Language = {
+//   short: string
+//   name: string
+// }
 
 export type LoadCountriesRequestAction = {
   type: typeof LOAD_COUNTRIES_REQUEST
