@@ -1,10 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { useSelector } from 'react-redux'
 
 import { AppState } from '../../types'
 import TableRow from '../TableRow'
+import { ThemeContext } from '../../context/theme'
+import './table.scss'
 
 const Table = () => {
+  const { theme } = useContext(ThemeContext)
   const { isLoading, allCountries } = useSelector(
     (state: AppState) => state.country
   )
@@ -13,19 +16,22 @@ const Table = () => {
     <>
       {isLoading && <p>Loading...</p>}
       {!isLoading && (
-        <div className="countriesTable">
-          <table>
-            <thead className="countriesTable__header">
+        <div>
+          <table className="countriesTable">
+            <thead
+              style={{ color: theme.foreground }}
+              className="countriesTable__header"
+            >
               <tr>
-                <th>Flag</th>
-                <th>Name</th>
-                {/* <th>Languages</th> */}
-                <th>Population</th>
-                <th>Region</th>
-                <th>Favorite</th>
+                <th className="countriesTable__items">Flag</th>
+                <th className="countriesTable__items">Name</th>
+                <th className="countriesTable__items">Languages</th>
+                <th className="countriesTable__items">Population</th>
+                <th className="countriesTable__items">Region</th>
+                <th className="countriesTable__items">Favorite</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody className="countriesTable__body">
               {allCountries.map((country) => (
                 <TableRow key={country.name.common} country={country} />
               ))}
