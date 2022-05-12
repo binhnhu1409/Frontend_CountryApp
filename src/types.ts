@@ -2,16 +2,17 @@
 export const LOAD_COUNTRIES_REQUEST = 'LOAD_COUNTRIES_REQUEST'
 export const LOAD_COUNTRIES_FAILURE = 'LOAD_COUNTRIES_FAILURE'
 export const LOAD_COUNTRIES_SUCCESS = 'LOAD_COUNTRIES_SUCCESS'
-export const ADD_PRODUCT = 'ADD_PRODUCT'
-export const REMOVE_PRODUCT = 'REMOVE_PRODUCT'
-export const TOGGLE_DIALOG = 'TOGGLE_DIALOG'
 
 // Enum?
 
 // A country
 export type Country = {
-  flag: string
-  name: string
+  flags: {
+    png: string
+  }
+  name: {
+    common: string
+  }
   language: {}
   population: number
   region: string
@@ -45,7 +46,7 @@ export type CountryState = {
   favoriteCountries: Country[]
 }
 
-export type GlobalState = {
+export type AppState = {
   country: CountryState
 }
 

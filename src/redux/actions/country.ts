@@ -45,11 +45,10 @@ export function fetchCountries() {
     dispatch(LoadCountriesRequestAction())
     try {
       const res = await axios.get('https://restcountries.com/v3.1/all')
-      console.log('res from country action:', res)
-      console.log('countriesData:', res.data)
-      dispatch(LoadCountriesSuccessAction(res.data))
+      const countriesData = res.data
+      return dispatch(LoadCountriesSuccessAction(countriesData))
     } catch (error) {
-      dispatch(LoadCountriesFailureAction())
+      return dispatch(LoadCountriesFailureAction())
     }
   }
 }

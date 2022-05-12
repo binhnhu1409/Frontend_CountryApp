@@ -2,9 +2,9 @@ import { applyMiddleware, compose, createStore } from 'redux'
 import thunk from 'redux-thunk'
 
 import rootReducer from './reducers'
-import { GlobalState } from '../types'
+import { AppState } from '../types'
 
-const init: GlobalState = {
+const initState: AppState = {
   country: {
     isLoading: false,
     allCountries: [],
@@ -12,7 +12,7 @@ const init: GlobalState = {
   },
 }
 
-export default function configureStore(initialState = init) {
+export default function configureStore(initialState = initState) {
   const middlewares = [thunk]
   let composedEnhancers = compose(applyMiddleware(...middlewares))
 

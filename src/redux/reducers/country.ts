@@ -14,6 +14,8 @@ export default function country(
   },
   action: CountryActions
 ): CountryState {
+  console.log('action', action)
+  console.log('state from country of reducers', state)
   switch (action.type) {
   case LOAD_COUNTRIES_REQUEST: {
     return {
@@ -31,9 +33,19 @@ export default function country(
 
   case LOAD_COUNTRIES_SUCCESS: {
     console.log('ACTION FROM SUCCESS REDUCER', action)
+    const allCountries = action.payload.countries.map((country) => ({
+      flags: country.flags.png,
+      name: country.name.common,
+      language: country.language,
+      population: country.population,
+      region: country.region,
+      isFavorite: false,
+    }))
+    console.log('from countries success,', allCountries)
     return {
       ...state,
       isLoading: false,
+      allCountries: allCountries,
     }
   }
 

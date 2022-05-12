@@ -10,7 +10,6 @@ import { SidebarContext } from '../../context/sidebar'
 const Header = () => {
   const { isToggle, toggleFunction } = useContext(SidebarContext)
   const { theme } = useContext(ThemeContext)
-  console.log('THEME:', theme)
 
   return (
     <header
