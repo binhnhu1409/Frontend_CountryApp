@@ -5,7 +5,10 @@ import {
   LOAD_COUNTRIES_REQUEST,
   LOAD_COUNTRIES_FAILURE,
   LOAD_COUNTRIES_SUCCESS,
+  ADD_FAVORITE_COUNTRY,
+  REMOVE_FAVORITE_COUNTRY,
   CountryActions,
+  Country,
 } from '../../types'
 
 export function LoadCountriesRequestAction(): CountryActions {
@@ -25,6 +28,24 @@ export function LoadCountriesSuccessAction(countries: any[]): CountryActions {
     type: LOAD_COUNTRIES_SUCCESS,
     payload: {
       countries,
+    },
+  }
+}
+
+export function AddFavoriteCountry(country: Country): CountryActions {
+  return {
+    type: ADD_FAVORITE_COUNTRY,
+    payload: {
+      country,
+    },
+  }
+}
+
+export function RemoveFavoriteCountry(country: Country): CountryActions {
+  return {
+    type: REMOVE_FAVORITE_COUNTRY,
+    payload: {
+      country,
     },
   }
 }

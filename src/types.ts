@@ -3,6 +3,9 @@ export const LOAD_COUNTRIES_REQUEST = 'LOAD_COUNTRIES_REQUEST'
 export const LOAD_COUNTRIES_FAILURE = 'LOAD_COUNTRIES_FAILURE'
 export const LOAD_COUNTRIES_SUCCESS = 'LOAD_COUNTRIES_SUCCESS'
 
+export const ADD_FAVORITE_COUNTRY = 'ADD_FAVORITE_COUNTRY'
+export const REMOVE_FAVORITE_COUNTRY = 'REMOVE_FAVORITE_COUNTRY'
+
 // Enum?
 
 // A country
@@ -38,11 +41,27 @@ export type LoadCountriesSuccessAction = {
   }
 }
 
+export type AddFavoriteCountryAction = {
+  type: typeof ADD_FAVORITE_COUNTRY
+  payload: {
+    country: Country
+  }
+}
+
+export type RemoveFavoriteCountryAction = {
+  type: typeof REMOVE_FAVORITE_COUNTRY
+  payload: {
+    country: Country
+  }
+}
+
 // Use this union in reducer
 export type CountryActions =
   | LoadCountriesRequestAction
   | LoadCountriesFailureAction
   | LoadCountriesSuccessAction
+  | AddFavoriteCountryAction
+  | RemoveFavoriteCountryAction
 
 export type CountryState = {
   isLoading: boolean
