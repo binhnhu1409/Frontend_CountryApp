@@ -1,0 +1,8 @@
+@import '../../styles/mixins';
+@import '../../styles/variables';
+
+.favoriteSide {
+  &__button{
+    font-size: 30px;
+  }
+}
