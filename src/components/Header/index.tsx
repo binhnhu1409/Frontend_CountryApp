@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import { useSelector } from 'react-redux'
+// import { Link } from 'react-router-dom'
 
 import { BsFillBookmarkHeartFill } from 'react-icons/bs'
 import { FaBars } from 'react-icons/fa'
@@ -32,6 +33,7 @@ const Header = () => {
             <h1 className="navbar__logo">Countries</h1>
           </li>
           <li className="navbar__item navbar__push">
+            {/* <Link to={`/countries/${country.name.common}`}> */}
             <button className="navbar__icon">
               <BsFillBookmarkHeartFill />
               <span
@@ -41,6 +43,7 @@ const Header = () => {
                 {favoriteCountries.length}
               </span>
             </button>
+            {/* </Link> */}
           </li>
         </ul>
       </nav>

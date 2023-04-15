@@ -1,7 +1,6 @@
 import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
-
 import { BsFillBookmarkPlusFill } from 'react-icons/bs'
 
 import { ThemeContext } from '../../context/theme'

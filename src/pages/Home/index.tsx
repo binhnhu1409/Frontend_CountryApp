@@ -4,8 +4,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { AppState } from '../../types'
 import { fetchCountries } from '../../redux/actions'
 
-import Header from '../../components/Header'
-import ThemeSidebar from '../../components/ThemeSidebar'
+// import Header from '../../components/Header'
+// import ThemeSidebar from '../../components/ThemeSidebar'
 import Table from '../../components/Table'
 
 export default function Home() {
@@ -21,8 +21,6 @@ export default function Home() {
 
   return (
     <>
-      <Header />
-      <ThemeSidebar />
       <Table />
     </>
   )
