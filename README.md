@@ -101,3 +101,48 @@ This template is suitable for rather small apps. For bigger apps, a better & mor
   --saga.ts
   --store.ts
   ```
+
+## Project structure
+```
+	src
+	|───components
+	│   |───Header
+	|             index.tsx
+	|             header.scss
+	|   |───ThemeSideBar
+	|             index.tsx
+	|             themeSidebar.scss
+	|   |───Table
+	|             index.tsx (plan to use react-table here)
+	|             table.scss 
+	|   |───FavoriteCountries
+	|             index.tsx
+	|             favoriteCountries.scss
+	|   |───TableRow
+	|             index.tsx
+	|             tablerow.scss
+  |   |───OneCountry
+	|             index.tsx
+	|    
+	|───context
+	|       theme.tsx (to change theme)
+  |       sidebar.tsx
+	|
+	|───pages
+	│   └───Home.tsx
+  |       ACountry.tsx
+	|
+	|───redux
+	│            actions (ADD_COUNTRY, REMOVE_COUNTRY to favorite list)
+	|                    (GET_COUNTRY_REQUEST, GET_COUNTRY_SUCCESS, GET_COUNTRY_FAIL)
+	│            reducers (switch the cases above)
+	|            store.ts
+	|
+	└───styles
+		_animation.scss
+		_functions.scss
+		_global.scss
+		_mixins.scss
+		_typography.scss
+    _variables.scss
+```
